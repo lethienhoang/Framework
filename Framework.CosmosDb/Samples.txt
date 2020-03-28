@@ -1,0 +1,14 @@
+# 1
+
+				RequestOptions options = new RequestOptions { PreTriggerInclude = new List<string> { "createDate" } };
+
+                var document = await _client.CreateItemAsync<PictureItem>(item, options);
+
+                if (file != null)
+                {
+                    var attachment = new Attachment { ContentType = file.ContentType, Id = "wallpaper", MediaLink = string.Empty };
+                    var input = new byte[file.OpenReadStream().Length];
+                    file.OpenReadStream().Read(input, 0, input.Length);
+                    attachment.SetPropertyValue("file", input);
+                    ResourceResponse<Attachment> createdAttachment = await this.galleryRepository.CreateAttachmentAsync(document.AttachmentsLink, attachment, new RequestOptions() { PartitionKey = new PartitionKey(item.Category) });
+                }
