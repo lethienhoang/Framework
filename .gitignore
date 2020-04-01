@@ -26,3 +26,5 @@ Framework.Swagger/obj/
 Framework.Swagger/bin/
 .vs/Framework/v16/Server/sqlite3/storage.ide
 .vs/Framework/v16/.suo
+Framework.CronJobs/bin/
+Framework.CronJobs/obj/

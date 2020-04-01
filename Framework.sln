@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.CosmosDb", "Frame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.CQRS", "Framework.CQRS\Framework.CQRS.csproj", "{21A333CE-EBCE-4F9F-B8AF-011C82385CB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.CronJobs", "Framework.CronJobs\Framework.CronJobs.csproj", "{EFA2BB29-D082-4B96-8747-DA09C53F4B20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,5 +172,17 @@ Global
 		{21A333CE-EBCE-4F9F-B8AF-011C82385CB2}.Release|x64.Build.0 = Release|Any CPU
 		{21A333CE-EBCE-4F9F-B8AF-011C82385CB2}.Release|x86.ActiveCfg = Release|Any CPU
 		{21A333CE-EBCE-4F9F-B8AF-011C82385CB2}.Release|x86.Build.0 = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|x64.Build.0 = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Debug|x86.Build.0 = Debug|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|x64.ActiveCfg = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|x64.Build.0 = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|x86.ActiveCfg = Release|Any CPU
+		{EFA2BB29-D082-4B96-8747-DA09C53F4B20}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
