@@ -14,7 +14,7 @@ namespace Framework.CronJobs
             _dispatcher = dispatcher;
         }
 
-        public Task<int> HandleAsync(SBQEventEnvelopeMessageRequest query)
+        public async Task<int> HandleAsync(SBQEventEnvelopeMessageRequest query)
         {
             switch (query.Subject)
             {

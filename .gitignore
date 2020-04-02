@@ -11,9 +11,6 @@ Framework.MongoDb/obj/
 Framework.PostgreSQL/bin/
 Framework.PostgreSQL/obj/
 Framework.RabbitMq/bin/
-
-Framework.HTTP/obj/
-Framework.HTTP/bin/
 Framework.CQRS/obj/
 Framework.RabbitMq/obj/
 Framework.ServiceBus/obj/
@@ -24,7 +21,7 @@ Framework/obj/
 Framework/bin/
 Framework.Swagger/obj/
 Framework.Swagger/bin/
-.vs/Framework/v16/Server/sqlite3/storage.ide
-.vs/Framework/v16/.suo
 Framework.CronJobs/bin/
 Framework.CronJobs/obj/
+Framework.HTTP/obj/
+Framework.HTTP/bin/

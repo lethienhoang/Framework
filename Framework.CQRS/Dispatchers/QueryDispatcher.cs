@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Autofac;
 using Framework.CQRS.Handlers;
 using Framework.Types;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Framework.CQRS.Dispatchers
 {
     public class QueryDispatcher : IQueryDispatcher
     {
-        private readonly IComponentContext _context;
-        public QueryDispatcher(IComponentContext context)
+        private readonly IServiceScopeFactory _serviceFactory;
+        public QueryDispatcher(IServiceScopeFactory serviceScope)
         {
-            _context = context;
+            _serviceFactory = serviceScope;
         }
 
         public async Task<TResult> QueryAsync<TResult>(IQuery<TResult> query)
         {
+            IServiceScope scopeService;
+            using (var scope = _serviceFactory.CreateScope())
+            {
+                scopeService = scope;
+            }
+
             var handlerType = typeof(IQueryHandler<,>)
                 .MakeGenericType(query.GetType(), typeof(TResult));
 
-            dynamic handler = _context.Resolve(handlerType);
+            dynamic handler = scopeService.ServiceProvider.GetRequiredService(handlerType);
 
             return await handler.HandleAsync((dynamic)query);
         }

@@ -1,12 +1,8 @@
-﻿using Framework.CQRS.Dispatchers;
-using Framework.ServiceBus.Infrastructure;
+﻿using Framework.ServiceBus.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,8 +14,7 @@ namespace Framework.CronJobs
         private readonly IServiceScope _serviceScope;
         private Timer _timer;
 
-        public QueueBackgroundService(IServiceScope serviceScope,
-            ILoggerFactory loggerFactory,
+        public QueueBackgroundService(ILoggerFactory loggerFactory,
             IServiceProvider serviceProvider)
         {
             _logger = loggerFactory.CreateLogger<QueueBackgroundService>();
@@ -38,7 +33,7 @@ namespace Framework.CronJobs
                 return handler.HandleAsync(messge).Result;
             });
 
-            _logger.LogDebug("QueueTendril background service started");
+            _logger.LogDebug("Queue background service started");
         }
 
         public void Dispose()

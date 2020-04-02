@@ -1,22 +1,29 @@
 ﻿using System.Threading.Tasks;
-using Autofac;
 using Framework.CQRS.Handlers;
 using Framework.CQRS.Messages;
 using Framework.Types;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Framework.CQRS.Dispatchers
 {
     public class CommandDispatcher : ICommandDispatcher
     {
-        private readonly IComponentContext _context;
-        public CommandDispatcher(IComponentContext context)
+        private readonly IServiceScopeFactory _serviceFactory;
+        public CommandDispatcher(IServiceScopeFactory serviceScope)
         {
-            _context = context;
+            _serviceFactory = serviceScope;
         }
 
         public async Task SendAsync<T>(T command) where T : ICommand
         {
-            await _context.Resolve<ICommandHandler<T>>().HandleAsync(command, CorrelationContext.Empty);
+            IServiceScope scopeService;
+            using (var scope = _serviceFactory.CreateScope())
+            {
+                scopeService = scope;
+            }
+
+            var handler = scopeService.ServiceProvider.GetRequiredService<ICommandHandler<T>>();
+            await handler.HandleAsync(command, CorrelationContext.Empty);
         }
     }
 }

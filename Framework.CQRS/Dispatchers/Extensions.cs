@@ -1,14 +1,15 @@
-﻿using Autofac;
+﻿
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Framework.CQRS.Dispatchers
 {
     public static class Extensions
     {
-        public static void AddDispatchers(this ContainerBuilder builder)
+        public static void AddDispatchers(this IServiceCollection services)
         {
-            builder.RegisterType<CommandDispatcher>().As<ICommandDispatcher>();
-            builder.RegisterType<Dispatcher>().As<IDispatcher>();
-            builder.RegisterType<QueryDispatcher>().As<IQueryDispatcher>();
+            services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
+            services.AddSingleton<IDispatcher, Dispatcher>();
+            services.AddSingleton<IQueryDispatcher, QueryDispatcher>();
         }
     }
 }
